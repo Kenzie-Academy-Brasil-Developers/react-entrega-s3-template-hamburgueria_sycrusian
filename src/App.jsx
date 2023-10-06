@@ -12,17 +12,33 @@ function App() {
   const cartCount = cartList.length;
 
   useEffect(() => {
+    const getShoppingCart = () => {
+      const cart = JSON.parse(localStorage.getItem("@shoppingCart"));
+      cart && setCartList(cart);
+    }
+    getShoppingCart();
+  }, []);
+
+  useEffect(() => {
     const addItem = item => {
-      item && setCartList([...cartList, {...item, purchaseId: crypto.randomUUID()}]);
-      setCurrentItem(null);
+      if (item) {
+        const newCartList = [...cartList, {...item, purchaseId: crypto.randomUUID()}];
+        localStorage.setItem("@shoppingCart", JSON.stringify(newCartList));
+        setCartList(newCartList);
+        setCurrentItem(null);
+      }
     }
     addItem(currentItem);
   }, [currentItem]);
 
   useEffect(() => {
     const removeItem = item => {
-      item && setCartList(cartList.filter(product => product.purchaseId !== item.purchaseId));
-      setFormerItem(null);
+      if (item) {
+        const newCartList = cartList.filter(product => product.purchaseId !== item.purchaseId);
+        localStorage.setItem("@shoppingCart", JSON.stringify(newCartList));
+        item && setCartList(newCartList);
+        setFormerItem(null);
+      }
     }
     removeItem(formerItem);
   }, [formerItem]);

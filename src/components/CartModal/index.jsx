@@ -15,6 +15,11 @@ export const CartModal = ({ cartList, setShowCart, setCartList, setFormerItem })
 
    useKeyDown("Escape", closeCart);
 
+   const emptyCart = () => {
+      localStorage.setItem("@shoppingCart", JSON.stringify([]));
+      setCartList([]);
+   }
+
    return (
       <div className={styles.modalOverlay} role="dialog">
          <div ref={cartRef} className={styles.modalBox}>
@@ -36,7 +41,7 @@ export const CartModal = ({ cartList, setShowCart, setCartList, setFormerItem })
                   <span className="body-600">Total</span>
                   <span className={`${styles.price} body-600`}>{total.toLocaleString('pt-BR', { style: "currency", currency: "BRL"})}</span>
                </div>
-               <button className="headline" onClick={() => setCartList([])}>Remover todos</button>
+               <button className="headline" onClick={emptyCart}>Remover todos</button>
             </div>
          </div>
       </div>
