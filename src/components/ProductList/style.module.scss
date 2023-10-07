@@ -1,14 +1,16 @@
 .productList {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: flex-start;
   gap: 1.25rem;
+  overflow-y: auto;
 }
 
 @media (min-width: 850px) {
   .productList {
+    flex-wrap: wrap;
     gap: 2rem;
   }
 }
