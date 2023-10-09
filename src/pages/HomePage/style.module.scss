@@ -3,8 +3,20 @@
   padding: 1rem;
 
   width: 100%;
-  max-width: 25rem;
+  max-width: 22rem;
   margin: 0 auto;
+}
+
+@media (max-width: 200px) {
+  .main {
+    max-width: 10rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .main {
+    max-width: 15rem;
+  }
 }
 
 @media (min-width: 850px) {
