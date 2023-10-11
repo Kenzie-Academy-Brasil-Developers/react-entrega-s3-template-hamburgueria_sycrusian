@@ -2,9 +2,11 @@
   background-color: var(--color-white);
   padding: 1rem;
 
-  width: 100%;
+  width: 90%;
   max-width: 22rem;
   margin: 0 auto;
+
+  overflow: hidden;
 }
 
 @media (max-width: 200px) {
@@ -15,7 +17,7 @@
 
 @media (max-width: 400px) {
   .main {
-    max-width: 15rem;
+    max-width: 20rem;
   }
 }
 
