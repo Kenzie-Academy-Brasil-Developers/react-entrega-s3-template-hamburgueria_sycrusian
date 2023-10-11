@@ -57,3 +57,15 @@
     }
   }
 }
+
+@media (max-width: 200px) {
+  .productCard {
+    min-width: 8rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .productCard {
+    min-width: 12rem;
+  }
+}
